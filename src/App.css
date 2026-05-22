@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 /* ===== Home/App.css ===== */
-=======
-/* ===== App.css ===== */
-
-/* Geral */
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-color: #f0f4f8;
-<<<<<<< HEAD
   color: #1E3347;
 }
 
@@ -187,13 +180,10 @@ body {
   .btn-primary, .btn-secondary {
     padding: 12px 20px;
   }
-=======
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
 }
 
 /* Navbar */
 .navbar {
-<<<<<<< HEAD
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -230,52 +220,6 @@ nav a.active {
 
 .hero {
   width: 100%;
-=======
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background: #2563eb;
-  color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 2px solid #1d4ed8;
-}
-
-.navbar .logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.navbar .logo-img {
-  width: 40px;
-  height: 40px;
-}
-
-.navbar .logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.navbar nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: 500;
-  transition: all 0.3s;
-}
-
-.navbar nav a.active,
-.navbar nav a:hover {
-  border-bottom: 2px solid #FFC107;
-}
-
-/* Hero/Banner */
-.hero {
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
   height: 600px;
   background-size: cover;
   background-position: center;
@@ -283,7 +227,6 @@ nav a.active {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-<<<<<<< HEAD
 }
 
 .hero-overlay {
@@ -300,43 +243,16 @@ nav a.active {
   font-size: 3.8rem;                  /* ligeiramente maior e mais “aberta” */
   font-weight: 600;                    /* mais leve que 700 para ficar elegante */
   line-height: 1.2;                    /* altura entre linhas mais confortável */
-=======
-  border-radius: 16px;
-  margin: 40px auto;
-  max-width: 1200px;
-}
-
-.hero-overlay {
-  background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 100%);
-  padding: 50px;
-  border-radius: 16px;
-  max-width: 550px;
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.hero-overlay h1 {
-  font-size: 3rem;
-  font-weight: 700;
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
   margin-bottom: 20px;
 }
 
 .hero-overlay .highlight {
-<<<<<<< HEAD
   color: #FFD600;   /* azul mais parecido com o exemplo */
   font-weight: 700; /* destaque mais forte */
 }
 
 .hero-overlay p {
   font-size: 1.2rem;
-=======
-  color: #FFC107;
-}
-
-.hero-overlay p {
-  font-size: 1.25rem;
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
   margin-bottom: 30px;
   line-height: 1.5;
 }
@@ -350,33 +266,21 @@ nav a.active {
   background: linear-gradient(90deg,#38bdf8,#2563eb);
   border: none;
   color: #fff;
-<<<<<<< HEAD
   padding: 16px 32px;
-=======
-  padding: 14px 28px;
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
   border-radius: 12px;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-<<<<<<< HEAD
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-=======
-  transition: all 0.3s ease;
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-<<<<<<< HEAD
   filter: brightness(1.1);
-=======
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
 }
 
 .btn-secondary {
   background: transparent;
-<<<<<<< HEAD
   border: 2px solid #fff; /* borda branca permanente */
   color: #fff;             /* texto branco sempre */
   padding: 16px 32px;
@@ -450,76 +354,6 @@ nav a.active {
   }
   .hero-overlay h1 {
     font-size: 2.4rem;
-=======
-  border: 2px solid #38bdf8;
-  color: #38bdf8;
-  padding: 14px 28px;
-  border-radius: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background: #38bdf8;
-  color: #fff;
-  transform: translateY(-3px);
-}
-
-/* Estatísticas */
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: -80px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.stat-card {
-  background: #F5E6D3;
-  padding: 25px;
-  border-radius: 16px;
-  text-align: center;
-  flex: 1 1 180px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-}
-
-.stat-card h3 {
-  color: #2563eb;
-  font-size: 1.8rem;
-  margin: 10px 0;
-}
-
-.stat-card p {
-  font-size: 1rem;
-  color: #1D4ED8;
-}
-
-.stat-card svg {
-  margin-bottom: 10px;
-  color: #2563eb;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .hero {
-    height: 500px;
-  }
-  .hero-overlay {
-    padding: 30px;
-  }
-  .hero-overlay h1 {
-    font-size: 2.2rem;
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
   }
   .hero-overlay p {
     font-size: 1rem;
@@ -531,7 +365,6 @@ nav a.active {
   .hero-stats {
     flex-direction: column;
     gap: 20px;
-<<<<<<< HEAD
   }
 }
 
@@ -609,8 +442,3 @@ nav a.active {
   }
 }
 
-=======
-    margin-top: 20px;
-  }
-}
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99

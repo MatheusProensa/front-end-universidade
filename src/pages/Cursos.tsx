@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import './cursos.css';
 import React, { useState } from "react";
 
@@ -31,28 +30,11 @@ export default function Cursos() {
             style={{ backgroundImage: `url(${c.img})` }}
             onClick={() => openLightbox(c.img)}
           >
-=======
-export default function Cursos() {
-  const cursos = [
-    { nome: "Sistemas de Informação", duracao: "4 anos" },
-    { nome: "Administração", duracao: "4 anos" },
-    { nome: "Direito", duracao: "5 anos" },
-    { nome: "Enfermagem", duracao: "4 anos" },
-  ];
-
-  return (
-    <div className="page">
-      <h2>Nossos Cursos</h2>
-      <div className="card-container">
-        {cursos.map((c, i) => (
-          <div className="card" key={i}>
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
             <h3>{c.nome}</h3>
             <p>Duração: {c.duracao}</p>
           </div>
         ))}
       </div>
-<<<<<<< HEAD
 
       {/* Lightbox overlay */}
       {lightboxImg && (
@@ -61,8 +43,6 @@ export default function Cursos() {
           <img src={lightboxImg} alt="Curso" />
         </div>
       )}
-=======
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
     </div>
   );
 }

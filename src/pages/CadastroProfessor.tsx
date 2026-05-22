@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import './cadastroprofessor.css';
 import React from "react";
 
@@ -35,20 +34,6 @@ export default function CadastroProfessor() {
 
         <button className="submit-btn">Cadastrar</button>
       </div>
-=======
-export default function CadastroProfessor() {
-  return (
-    <div className="page">
-      <h2>Cadastro de Professor</h2>
-      <form className="form-container">
-        <input placeholder="Nome completo" />
-        <input placeholder="CPF" />
-        <input placeholder="Área de atuação" />
-        <input placeholder="Telefone" />
-        <input placeholder="Email" />
-        <button type="submit">Cadastrar Professor</button>
-      </form>
->>>>>>> 42c063c41309b19f465c9f24364e3b3de1510d99
     </div>
   );
 }
