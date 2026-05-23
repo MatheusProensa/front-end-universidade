@@ -1,9 +1,10 @@
+/* Página de Cursos */
 .page {
   padding: 40px 20px;
   background: #f1f3f6;
   display: flex;
   flex-direction: column;
-  align-items: center; /* centraliza todo o conteúdo */
+  align-items: center;
 }
 
 .page-title {
@@ -20,50 +21,80 @@
 .card-container {
   display: flex;
   gap: 20px;
-  flex-wrap: nowrap; /* impede quebra de linha */
+  flex-wrap: nowrap;
   justify-content: center;
-  overflow-x: auto; /* permite scroll horizontal caso a tela seja pequena */
+  overflow-x: auto;
   padding-bottom: 10px;
 }
 
 .card {
-  flex: 0 0 auto; /* garante largura fixa sem encolher */
-  position: relative;
+  flex: 0 0 auto;
   width: 280px;
   height: 180px;
-  color: #fff;
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  background-size: cover;
-  background-position: center;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  /* se quiser colocar overlay */
+  background: rgba(0,0,0,0.0);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit; /* mantém a mesma imagem do card */
+  background-size: contain; /* imagem inteira visível */
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.card:hover::before {
+  transform: scale(1.05); /* zoom suave */
+  filter: brightness(1.1);
+}
+
+/* Texto sobre a imagem como overlay */
+.card h3, 
+.card p {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  margin: 0;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .card h3 {
-  margin: 0;
   font-size: 1.2rem;
   font-weight: 700;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .card p {
-  margin: 5px 0 10px 0;
   font-size: 1rem;
   font-weight: 500;
-  color: #f1f3f6;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
-
 /* Lightbox overlay */
 .lightbox-overlay {
   position: fixed;

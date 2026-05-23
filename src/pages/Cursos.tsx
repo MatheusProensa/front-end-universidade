@@ -19,24 +19,19 @@ export default function Cursos() {
 
   return (
     <div className="page">
-      {/* Título fixo e destacado */}
       <h2 className="page-title">Nossos Cursos</h2>
 
       <div className="card-container">
         {cursos.map((c, i) => (
-          <div
-            className="card"
-            key={i}
-            style={{ backgroundImage: `url(${c.img})` }}
-            onClick={() => openLightbox(c.img)}
-          >
-            <h3>{c.nome}</h3>
-            <p>Duração: {c.duracao}</p>
-          </div>
+          <div className="card" key={i} onClick={() => openLightbox(c.img)}>
+  <img src={c.img} alt={c.nome} />
+  <div className="card-content">
+    {/* removi título e duração da tela, já estão na arte */}
+  </div>
+</div>
         ))}
       </div>
 
-      {/* Lightbox overlay */}
       {lightboxImg && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <span className="lightbox-close" onClick={closeLightbox}>&times;</span>
