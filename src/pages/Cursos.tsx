@@ -64,6 +64,49 @@ export default function Cursos() {
     img: "/enfermagem.png",
     icone: <FaHeartbeat />,
   },
+  {
+  nome: "Design Gráfico",
+  area: "Comunicação",
+  descricao:
+    "Criação visual, branding, interfaces digitais e projetos criativos para o mercado moderno.",
+  duracao: "8 semestres",
+  modalidade: "Presencial",
+  img: "/design.png",
+  icone: <FaLaptopCode />,
+},
+
+{
+  nome: "Educação Física",
+  area: "Saúde",
+  descricao:
+    "Formação voltada para treinamento esportivo, saúde, performance e qualidade de vida.",
+  duracao: "8 semestres",
+  modalidade: "Presencial",
+  img: "/educacaofisica.png",
+  icone: <FaHeartbeat />,
+},
+
+{
+  nome: "Medicina Veterinária",
+  area: "Saúde",
+  descricao:
+    "Aprenda sobre cuidado animal, diagnóstico clínico e atuação em diversas áreas veterinárias.",
+  duracao: "10 semestres",
+  modalidade: "Presencial",
+  img: "/veterinaria.png",
+  icone: <FaHeartbeat />,
+},
+
+{
+  nome: "Biomedicina",
+  area: "Biológicas",
+  descricao:
+    "Atuação em análises clínicas, laboratórios, pesquisa científica e inovação na saúde.",
+  duracao: "8 semestres",
+  modalidade: "Presencial",
+  img: "/biomedicina.png",
+  icone: <FaHeartbeat />,
+},
 
   
 ];
