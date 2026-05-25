@@ -244,7 +244,7 @@ font-weight: 400;
   background: #ffffff;
   color: #03277d;
   border-radius: 6px;
-  font-weight: 800;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.25s ease;
 }
@@ -371,7 +371,7 @@ font-weight: 400;
   color: #03277d;
 
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .beneficio-card p {
@@ -465,4 +465,12 @@ font-weight: 400;
 
 .consultor-btn:hover {
   background: #ffcc00;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
