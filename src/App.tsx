@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
 import CadastroAluno from "./pages/CadastroAluno";
@@ -9,44 +9,65 @@ import "./App.css";
 import logo from "./assets/logo-universidade.png";
 
 export default function App() {
+
+  const [menuAberto, setMenuAberto] = useState(false);
+
   return (
     <Router>
       <header className="navbar">
         <div className="logo-container">
           <img src={logo} alt="Universidade React" className="logo-img" />
         </div>
-        <nav>
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => isActive ? "active" : ""} 
-          >
-            Home
-          </NavLink>
-          <NavLink 
-            to="/cursos" 
-            className={({ isActive }) => isActive ? "active" : ""} 
-          >
-            Cursos
-          </NavLink>
-          <NavLink 
-            to="/cadastro-aluno" 
-            className={({ isActive }) => isActive ? "active" : ""} 
-          >
-            Cadastro Aluno
-          </NavLink>
-          <NavLink 
-            to="/cadastro-professor" 
-            className={({ isActive }) => isActive ? "active" : ""} 
-          >
-            Cadastro Professor
-          </NavLink>
-          <NavLink 
-            to="/contato" 
-            className={({ isActive }) => isActive ? "active" : ""} 
-          >
-            Contato
-          </NavLink>
-        </nav>
+       <nav className="nav-links">
+  <NavLink 
+    to="/" 
+    className={({ isActive }) => isActive ? "active" : ""}
+  >
+    Home
+  </NavLink>
+
+  <NavLink 
+    to="/cursos" 
+    className={({ isActive }) => isActive ? "active" : ""}
+  >
+    Cursos
+  </NavLink>
+
+  <NavLink 
+    to="/contato" 
+    className={({ isActive }) => isActive ? "active" : ""}
+  >
+    Contato
+  </NavLink>
+
+ {/* DROPDOWN INSCREVA-SE */}
+<div className="dropdown-inscricao">
+  <button
+    className="btn-inscreva"
+    onClick={() => setMenuAberto(!menuAberto)}
+  >
+    Inscreva-se
+  </button>
+
+  {menuAberto && (
+    <div className="dropdown-menu">
+      <NavLink
+        to="/cadastro-aluno"
+        onClick={() => setMenuAberto(false)}
+      >
+        Aluno
+      </NavLink>
+
+      <NavLink
+        to="/cadastro-professor"
+        onClick={() => setMenuAberto(false)}
+      >
+        Professor
+      </NavLink>
+    </div>
+  )}
+</div>
+</nav>
       </header>
 
       <main>

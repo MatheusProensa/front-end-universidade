@@ -1,5 +1,6 @@
 import './cursos.css';
 import React, { useState } from "react";
+import bgCursos from "../assets/bg-cursos.png";
 
 export default function Cursos() {
   const cursos = [
@@ -19,7 +20,21 @@ export default function Cursos() {
 
   return (
     <div className="page">
-      <h2 className="page-title">Nossos Cursos</h2>
+  <section
+    className="cursos-hero"
+    style={{ backgroundImage: `url(${bgCursos})` }}
+  >
+    <div className="cursos-hero-content">
+      <h1>Nossos Cursos</h1>
+
+      <div className="cursos-hero-text">
+        <p>
+          Conheça nossos cursos de graduação e encontre<br />
+          o caminho ideal para o seu futuro profissional.
+        </p>
+      </div>
+    </div>
+  </section>
 
       <div className="card-container">
         {cursos.map((c, i) => (
@@ -27,7 +42,7 @@ export default function Cursos() {
   <img src={c.img} alt={c.nome} />
   <div className="card-content">
     {/* removi título e duração da tela, já estão na arte */}
-  </div>
+       </div>
 </div>
         ))}
       </div>
