@@ -59,6 +59,10 @@ border-radius: 0;
 .hero-buttons {
   display: flex;
   gap: 20px;
+  transition:
+  transform 0.25s ease,
+  filter 0.25s ease,
+  background 0.25s ease;
 }
 
 .btn-primary {
@@ -75,6 +79,13 @@ border-radius: 0;
   font-weight: 700;
 font-family: 'Inter', sans-serif;
 letter-spacing: 0.2px;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 12px 24px rgba(37,99,235,0.22);
+}
 }
 
 .btn-primary:hover {
@@ -95,6 +106,13 @@ letter-spacing: 0.2px;
   font-weight: 700;
 font-family: 'Inter', sans-serif;
 letter-spacing: 0.2px;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 12px 24px rgba(37,99,235,0.22);
+}
 }
 
 .btn-secondary:hover {

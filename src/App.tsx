@@ -34,6 +34,13 @@ export default function App() {
     Cursos
   </NavLink>
 
+<NavLink 
+  to="/sobre" 
+  className={({ isActive }) => isActive ? "active" : ""}
+>
+  Sobre
+</NavLink>
+
   <NavLink 
     to="/contato" 
     className={({ isActive }) => isActive ? "active" : ""}
@@ -41,12 +48,7 @@ export default function App() {
     Contato
   </NavLink>
 
-  <NavLink 
-  to="/sobre" 
-  className={({ isActive }) => isActive ? "active" : ""}
->
-  Sobre
-</NavLink>
+
 
  {/* DROPDOWN INSCREVA-SE */}
 <div className="dropdown-inscricao">

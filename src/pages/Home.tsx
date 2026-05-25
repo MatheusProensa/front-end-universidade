@@ -2,7 +2,7 @@
 import React from "react";
 import bg from "../assets/bg.png"; // fundo
 import { FaGraduationCap, FaBook, FaUsers, FaBuilding } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="hero" style={{ backgroundImage: `url(${bg})` }}>
@@ -16,10 +16,12 @@ export default function Home() {
         </p>
 
         <div className="hero-buttons">
-          <button className="btn-primary">Ver Cursos →</button>
-          <a href="#sobre" className="btn-secondary">
-          Sobre a Universidade →
-          </a>
+          <Link to="/cursos" className="btn-primary">
+          Ver Cursos →
+          </Link>
+          <Link to="/sobre" className="btn-secondary">
+           Sobre a Universidade →
+          </Link>
         </div>
 
         <div className="hero-stats">
