@@ -8,7 +8,10 @@ import {
   FaHeartbeat,
   FaClock,
   FaGraduationCap,
-  FaSearch
+  FaSearch,
+  FaUniversity,
+  FaUsers,
+  FaFileAlt
 } from "react-icons/fa";
 
 export default function Cursos() {
@@ -136,6 +139,74 @@ export default function Cursos() {
           ))}
         </div>
       </section>
+
+<section className="beneficios-section">
+
+  <div className="beneficio-card">
+    <div className="beneficio-icon"><FaGraduationCap /></div>
+
+    <div>
+      <h4>Ensino de Qualidade</h4>
+      <p>
+        Professores experientes e metodologias inovadoras para a sua formação.
+      </p>
+    </div>
+  </div>
+
+  <div className="beneficio-card">
+    <div className="beneficio-icon"><FaUniversity /></div>
+
+    <div>
+      <h4>Infraestrutura Completa</h4>
+      <p>
+        Laboratórios modernos, bibliotecas e espaços de aprendizagem.
+      </p>
+    </div>
+  </div>
+
+  <div className="beneficio-card">
+    <div className="beneficio-icon"><FaUsers /></div>
+
+    <div>
+      <h4>Conexão com o Mercado</h4>
+      <p>
+        Parcerias com empresas e oportunidades de estágio e emprego.
+      </p>
+    </div>
+  </div>
+
+  <div className="beneficio-card">
+    <div className="beneficio-icon"><FaFileAlt /></div>
+
+    <div>
+      <h4>Formação Completa</h4>
+      <p>
+        Desenvolvimento técnico, humano e profissional para o seu futuro.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<section className="consultor-section">
+
+  <div className="consultor-texto">
+    <div className="consultor-icon"><FaGraduationCap /></div>
+
+    <div>
+      <h3>Não encontrou o curso que procura?</h3>
+
+      <p>
+        Fale com a nossa equipe e descubra outras opções de graduação.
+      </p>
+    </div>
+  </div>
+
+  <button className="consultor-btn">
+    FALAR COM UM CONSULTOR →
+  </button>
+
+</section>
 
       {lightboxImg && (
         <div className="lightbox-overlay" onClick={closeLightbox}>

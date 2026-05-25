@@ -1,3 +1,7 @@
+* {
+  font-family: 'Inter', sans-serif;
+}
+
 /* Página de Cursos */
 .page {
   background: #f1f3f6;
@@ -56,31 +60,71 @@
   grid-template-columns: 1.4fr 1fr 1fr auto;
   gap: 14px;
   align-items: center;
-  margin-bottom: 28px;
-}
-
-.campo-busca,
-.campo-select {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-},
-.campo-select {
-  background: #ffffff;
-  border: 1px solid #d9e1ef;
-  border-radius: 8px;
-  padding: 13px 16px;
-  font-size: 0.9rem;
-  color: #68758a;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  margin-bottom: 26px;
 }
 
 .limpar-filtros {
   border: none;
   background: transparent;
   color: #0057d9;
+  font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.limpar-filtros:hover {
+  color: #003f9e;
+}
+
+.campo-busca,
+.campo-select {
+  height: 52px;
+
+  background: #ffffff;
+  border: 1px solid #dfe5ef;
+
+  border-radius: 8px;
+
+  padding: 0 18px;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  color: #5f6b7d;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+
+  transition: 0.2s ease;
+}
+
+.campo-busca:hover,
+.campo-select:hover {
+  border-color: #b8c7e6;
+}
+
+.campo-busca span,
+.campo-select span {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.campo-busca svg,
+.campo-select svg {
+  font-size: 0.95rem;
+  color: #7a8597;
+}
+
+.campo-select::after {
+  content: "⌄";
+  font-size: 1rem;
+  color: #7a8597;
 }
 
 /* Cards */
@@ -162,7 +206,8 @@
 
 .curso-content p {
   color: #334155;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+font-weight: 400;
   line-height: 1.5;
   margin: 0 0 18px;
   min-height: 58px;
@@ -263,4 +308,161 @@
   .cursos-hero-content {
     padding: 0 24px;
   }
+}
+
+/* BENEFÍCIOS */
+
+.beneficios-section {
+  width: 100%;
+  max-width: 1240px;
+
+  margin-top: 34px;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  overflow: hidden;
+
+  border: 1px solid #e5eaf3;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.beneficio-card {
+  padding: 20px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  border-right: 1px solid #edf1f7;
+}
+
+.beneficio-card:last-child {
+  border-right: none;
+}
+
+.beneficio-icon {
+  width: 52px;
+  height: 52px;
+
+  min-width: 52px;
+
+  border-radius: 50%;
+
+  background: #03277d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 1.2rem;
+}
+
+.beneficio-card h4 {
+  margin: 0 0 6px;
+
+  color: #03277d;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.beneficio-card p {
+  margin: 0;
+
+  color: #4a5568;
+
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+/* CONSULTOR */
+
+.consultor-section {
+  width: 100%;
+  max-width: 1240px;
+
+  margin-top: 18px;
+  margin-bottom: 70px;
+
+  background: linear-gradient(90deg, #03277d, #0a3ea9);
+
+  border-radius: 8px;
+
+  padding: 18px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.consultor-texto {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.consultor-icon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 1.3rem;
+}
+
+.consultor-texto h3 {
+  margin: 0 0 5px;
+
+  color: white;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.consultor-texto p {
+  margin: 0;
+
+  color: rgba(255,255,255,0.9);
+
+  font-size: 0.9rem;
+}
+
+.consultor-btn {
+  height: 48px;
+
+  padding: 0 26px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #ffd600;
+
+  color: #03277d;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.consultor-btn:hover {
+  background: #ffcc00;
 }
