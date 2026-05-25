@@ -197,6 +197,7 @@
   top: 126px;
   left: 16px;
   box-shadow: 0 6px 15px rgba(3, 39, 125, 0.25);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 .curso-content {
@@ -511,4 +512,26 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.campo-busca input {
+  border: none;
+  outline: none;
+  background: transparent;
+
+  width: 100%;
+
+  font-size: 0.82rem;
+  font-weight: 500;
+
+  color: #5f6b7d;
+
+  font-family: inherit;
+}
+
+.campo-busca input::placeholder {
+  color: #5f6b7d;
+}
+.campo-busca {
+  gap: 10px;
 }

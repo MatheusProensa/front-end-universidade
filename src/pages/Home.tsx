@@ -17,7 +17,9 @@ export default function Home() {
 
         <div className="hero-buttons">
           <button className="btn-primary">Ver Cursos →</button>
-          <button className="btn-secondary">Cadastre-se →</button>
+          <a href="#sobre" className="btn-secondary">
+          Sobre a Universidade →
+          </a>
         </div>
 
         <div className="hero-stats">

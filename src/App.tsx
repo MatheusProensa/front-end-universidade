@@ -7,6 +7,7 @@ import Contato from "./pages/Contato";
 import Cursos from "./pages/Cursos";
 import "./App.css";
 import logo from "./assets/logo-universidade.png";
+import Sobre from "./pages/Sobre";
 
 export default function App() {
 
@@ -39,6 +40,13 @@ export default function App() {
   >
     Contato
   </NavLink>
+
+  <NavLink 
+  to="/sobre" 
+  className={({ isActive }) => isActive ? "active" : ""}
+>
+  Sobre
+</NavLink>
 
  {/* DROPDOWN INSCREVA-SE */}
 <div className="dropdown-inscricao">
@@ -77,6 +85,7 @@ export default function App() {
           <Route path="/cadastro-aluno" element={<CadastroAluno />} />
           <Route path="/cadastro-professor" element={<CadastroProfessor />} />
           <Route path="/contato" element={<Contato />} />
+          <Route path="/sobre" element={<Sobre />} />
         </Routes>
       </main>
     </Router>

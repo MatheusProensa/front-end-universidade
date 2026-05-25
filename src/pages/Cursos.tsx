@@ -64,7 +64,27 @@ export default function Cursos() {
     img: "/enfermagem.png",
     icone: <FaHeartbeat />,
   },
+
+  
 ];
+
+  const [busca, setBusca] = useState("");
+  const [areaSelecionada, setAreaSelecionada] = useState("Todas");
+  const [modalidadeSelecionada, setModalidadeSelecionada] = useState("Todas");
+
+  const cursosFiltrados = cursos.filter((curso) => {
+    const nomeCombina = curso.nome.toLowerCase().includes(busca.toLowerCase());
+
+    const areaCombina =
+      areaSelecionada === "Todas" || curso.area === areaSelecionada;
+
+    const modalidadeCombina =
+      modalidadeSelecionada === "Todas" ||
+      curso.modalidade === modalidadeSelecionada;
+
+    return nomeCombina && areaCombina && modalidadeCombina;
+  });
+
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
   const openLightbox = (img: string) => setLightboxImg(img);
@@ -94,23 +114,52 @@ export default function Cursos() {
 
       <section className="cursos-section">
         <div className="filtros-cursos">
-        <div className="campo-busca">
-  <FaSearch />
-  <span>Buscar curso...</span>
+  <div className="campo-busca">
+    <FaSearch />
+
+    <input
+      type="text"
+      placeholder="Buscar curso..."
+      value={busca}
+      onChange={(e) => setBusca(e.target.value)}
+    />
+  </div>
+
+  <select
+    className="campo-select"
+    value={areaSelecionada}
+    onChange={(e) => setAreaSelecionada(e.target.value)}
+  >
+    <option value="Todas">Todas as áreas</option>
+    <option value="Tecnologia">Tecnologia</option>
+    <option value="Negócios">Negócios</option>
+    <option value="Ciências Sociais">Ciências Sociais</option>
+    <option value="Saúde">Saúde</option>
+  </select>
+
+  <select
+    className="campo-select"
+    value={modalidadeSelecionada}
+    onChange={(e) => setModalidadeSelecionada(e.target.value)}
+  >
+    <option value="Todas">Todas as modalidades</option>
+    <option value="Presencial">Presencial</option>
+  </select>
+
+  <button
+    className="limpar-filtros"
+    onClick={() => {
+      setBusca("");
+      setAreaSelecionada("Todas");
+      setModalidadeSelecionada("Todas");
+    }}
+  >
+    ↻ Limpar filtros
+  </button>
 </div>
-          <div className="campo-select">
-  <FaGraduationCap />
-  <span>Todas as áreas</span>
-</div>
-          <div className="campo-select">
-  <FaGraduationCap />
-  <span>Todas as modalidades</span>
-</div>
-          <button className="limpar-filtros">↻ Limpar filtros</button>
-        </div>
 
         <div className="card-container">
-          {cursos.map((c, i) => (
+          {cursosFiltrados.map((c, i) => (
             <div className="curso-card" key={i}>
               <div className="curso-img-box" onClick={() => openLightbox(c.img)}>
                 <img src={c.img} alt={c.nome} />

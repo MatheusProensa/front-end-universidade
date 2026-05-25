@@ -9,16 +9,20 @@ body {
 /* Hero/banner */
 .hero {
   width: 100%;
-  height: 95vh;
-  max-width: 100%;a tela */
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0 auto;
-  position: relative;
-  border-radius: 0;
+height: 95vh;
+max-width: 100%;
+overflow: hidden;
+
+background-size: cover;
+background-position: center;
+
+display: flex;
+align-items: center;
+justify-content: flex-start;
+
+margin: 0 auto;
+position: relative;
+border-radius: 0;
 }
 
 .hero-overlay {
@@ -68,6 +72,9 @@ body {
   color: #fff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  font-weight: 700;
+font-family: 'Inter', sans-serif;
+letter-spacing: 0.2px;
 }
 
 .btn-primary:hover {
@@ -85,6 +92,9 @@ body {
   background: transparent;
   color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  font-weight: 700;
+font-family: 'Inter', sans-serif;
+letter-spacing: 0.2px;
 }
 
 .btn-secondary:hover {
@@ -105,16 +115,21 @@ body {
 }
 
 .stat-card {
-  position: relative;           /* necessário para o traço */
-  background: transparent;       /* remove qualquer fundo */
+  position: relative;
+  background: transparent;
   border-radius: 0;
-  padding: 0 10px;              /* deixa mais compacto */
+  padding: 0 10px;
   text-align: center;
   flex: 1;
   max-width: 200px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .stat-card:hover {

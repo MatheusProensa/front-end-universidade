@@ -1,0 +1,86 @@
+.sobre-page {
+  background: #f1f3f6;
+  min-height: 100vh;
+}
+
+.sobre-hero {
+  height: 320px;
+  background: linear-gradient(90deg, #03277d, #0a3ea9);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 70px;
+}
+
+.sobre-hero div {
+  max-width: 720px;
+}
+
+.sobre-hero span {
+  color: #ffd600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+}
+
+.sobre-hero h1 {
+  font-size: 3rem;
+  line-height: 1.15;
+  margin: 18px 0;
+}
+
+.sobre-hero p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+}
+
+.sobre-content {
+  max-width: 1180px;
+  margin: -60px auto 80px;
+  background: white;
+  border-radius: 18px;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 50px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.sobre-text h2 {
+  color: #03277d;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.sobre-text p {
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.sobre-numeros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.sobre-numeros div {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 24px;
+  border: 1px solid #e5eaf3;
+}
+
+.sobre-numeros strong {
+  display: block;
+  color: #03277d;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.sobre-numeros span {
+  color: #64748b;
+  font-size: 0.9rem;
+}
