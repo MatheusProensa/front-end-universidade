@@ -1,6 +1,7 @@
 import "./cursos.css";
 import React, { useState } from "react";
 import bgCursos from "../assets/bg-cursos.png";
+
 import {
   FaLaptopCode,
   FaChartLine,
@@ -8,11 +9,15 @@ import {
   FaHeartbeat,
   FaClock,
   FaGraduationCap,
-  FaSearch,
-  FaUniversity,
-  FaUsers,
-  FaFileAlt
+  FaSearch
 } from "react-icons/fa";
+
+import {
+  GraduationCap,
+  Building2,
+  Users,
+  FileText
+} from "lucide-react";
 
 export default function Cursos() {
   const cursos = [
@@ -120,20 +125,30 @@ export default function Cursos() {
                 <p>{c.descricao}</p>
 
                 <div className="curso-info">
-                  <div>
-                    <strong><FaClock /> Duração</strong>
-                    <span>{c.duracao}</span>
-                  </div>
 
-                  <div>
-                    <strong><FaGraduationCap /> Modalidade</strong>
-                    <span>{c.modalidade}</span>
-                  </div>
-                </div>
+  <div className="info-item">
+    <FaClock />
 
-                <button className="btn-detalhes">
-                  Ver detalhes <span>›</span>
-                </button>
+    <div>
+      <strong>Duração</strong>
+      <span>{c.duracao}</span>
+    </div>
+  </div>
+
+  <div className="info-item">
+    <FaGraduationCap />
+
+    <div>
+      <strong>Modalidade</strong>
+      <span>{c.modalidade}</span>
+    </div>
+  </div>
+
+</div>
+
+<button className="btn-detalhes">
+  Ver detalhes <span>›</span>
+</button>
               </div>
             </div>
           ))}
@@ -143,7 +158,7 @@ export default function Cursos() {
 <section className="beneficios-section">
 
   <div className="beneficio-card">
-    <div className="beneficio-icon"><FaGraduationCap /></div>
+    <div className="beneficio-icon"><GraduationCap /></div>
 
     <div>
       <h4>Ensino de Qualidade</h4>
@@ -154,7 +169,7 @@ export default function Cursos() {
   </div>
 
   <div className="beneficio-card">
-    <div className="beneficio-icon"><FaUniversity /></div>
+    <div className="beneficio-icon"><Building2 /></div>
 
     <div>
       <h4>Infraestrutura Completa</h4>
@@ -165,7 +180,7 @@ export default function Cursos() {
   </div>
 
   <div className="beneficio-card">
-    <div className="beneficio-icon"><FaUsers /></div>
+    <div className="beneficio-icon"><Users /></div>
 
     <div>
       <h4>Conexão com o Mercado</h4>
@@ -176,7 +191,7 @@ export default function Cursos() {
   </div>
 
   <div className="beneficio-card">
-    <div className="beneficio-icon"><FaFileAlt /></div>
+    <div className="beneficio-icon"><FileText /></div>
 
     <div>
       <h4>Formação Completa</h4>
@@ -191,7 +206,7 @@ export default function Cursos() {
 <section className="consultor-section">
 
   <div className="consultor-texto">
-    <div className="consultor-icon"><FaGraduationCap /></div>
+    <div className="consultor-icon"><GraduationCap /></div>
 
     <div>
       <h3>Não encontrou o curso que procura?</h3>
