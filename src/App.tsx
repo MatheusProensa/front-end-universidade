@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-import Home from "./pages/Home";
-import CadastroAluno from "./pages/CadastroAluno";
-import CadastroProfessor from "./pages/CadastroProfessor";
-import Contato from "./pages/Contato";
-import Cursos from "./pages/Cursos";
+
+import Home from "./pages/home";
+import CadastroAluno from "./pages/cadastroaluno";
+import CadastroProfessor from "./pages/cadastroprofessor";
+import Contato from "./pages/contato";
+import Cursos from "./pages/cursos";
+import Sobre from "./pages/sobre";
+
 import "./App.css";
 import logo from "./assets/logo-universidade.png";
-import Sobre from "./pages/Sobre";
 
 export default function App() {
 
