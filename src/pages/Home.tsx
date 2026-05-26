@@ -1,5 +1,3 @@
-
-import React from "react";
 import bg from "../assets/bg.png"; // fundo
 import { FaGraduationCap, FaBook, FaUsers, FaBuilding } from "react-icons/fa";
 import { Link } from "react-router-dom";

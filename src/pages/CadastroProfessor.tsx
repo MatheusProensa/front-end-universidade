@@ -3,8 +3,6 @@ import bgProfessor from "../assets/bg-professor.png";
 
 import {
   FaChalkboardTeacher,
-  FaIdCard,
-  FaEnvelope,
   FaBookOpen,
   FaUsers,
   FaAward
