@@ -282,3 +282,27 @@
     align-items: flex-start;
   }
 }
+
+
+@media (max-width: 768px) {
+  section {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .cursos-hero-content,
+  .sobre-hero-content,
+  .contato-hero-content,
+  .cadastro-hero-content,
+  .professor-hero-content {
+    padding: 0 22px;
+  }
+
+  .cursos-hero h1,
+  .sobre-hero h1,
+  .contato-hero h1,
+  .cadastro-hero h1,
+  .professor-hero h1 {
+    font-size: 1.7rem;
+  }
+}
