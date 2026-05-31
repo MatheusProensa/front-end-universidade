@@ -360,6 +360,22 @@ function Translator({ lang }: { lang: "pt" | "en" }) {
   return null;
 }
 
+function RevealOnScroll() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const sel = ".section, .trust, .depoimentos-wrap, .noticias-wrap, .bolsas-wrap, .cta-band";
+    const els = Array.from(document.querySelectorAll<HTMLElement>(sel));
+    if (!("IntersectionObserver" in window)) { els.forEach((e) => e.classList.add("reveal", "in")); return; }
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }),
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((e) => { e.classList.add("reveal"); io.observe(e); });
+    return () => io.disconnect();
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   const [lang, setLang] = useState<"pt" | "en">(() => ((localStorage.getItem("ur-lang") as "pt" | "en") || "pt"));
   const onToggleLang = () => setLang((l) => { const n = l === "pt" ? "en" : "pt"; localStorage.setItem("ur-lang", n); return n; });
@@ -369,6 +385,7 @@ export default function App() {
       <Navbar lang={lang} onToggleLang={onToggleLang} />
       <ScrollTop />
       <Translator lang={lang} />
+      <RevealOnScroll />
       <main id="conteudo" key={lang}>
         <Routes>
           <Route path="/" element={<Home />} />
