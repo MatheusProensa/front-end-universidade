@@ -26,12 +26,12 @@ O **Universidade React** é um site institucional completo, pensado para passar 
 ## 🖼️ Preview
 
 
-> ![Home](<img width="1901" height="842" alt="Captura de tela 2026-05-31 154018" src="https://github.com/user-attachments/assets/baa847f0-8921-425c-8f4c-530362695e71" />
+![Home](https://github.com/user-attachments/assets/baa847f0-8921-425c-8f4c-530362695e71)
 )
-> ![Cursos](<img width="1901" height="866" alt="Captura de tela 2026-05-31 154026" src="https://github.com/user-attachments/assets/721768e0-491a-4cbf-b3a4-2c4c7ec801b3" />
+![Cursos](https://github.com/user-attachments/assets/721768e0-491a-4cbf-b3a4-2c4c7ec801b3)
 )
-> ![Estrutura](<img width="1901" height="866" alt="Captura de tela 2026-05-31 154026" src="https://github.com/user-attachments/assets/138bd222-c0ff-4a76-be54-3f43cf3d7a80" />)
-> ![Estrutura](<img width="1900" height="784" alt="Captura de tela 2026-05-31 154050" src="https://github.com/user-attachments/assets/1dd50750-7fa5-4701-b159-3b113991c4f1" />)
+![Estrutura](https://github.com/user-attachments/assets/138bd222-c0ff-4a76-be54-3f43cf3d7a80)
+![Estrutura Detalhes](https://github.com/user-attachments/assets/1dd50750-7fa5-4701-b159-3b113991c4f1)
 
 
 
