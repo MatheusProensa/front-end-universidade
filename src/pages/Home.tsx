@@ -108,7 +108,7 @@ export default function Home() {
                 <span className="noticia-data"><i className="fa-regular fa-calendar"></i> {n.data}</span>
                 <h3>{n.titulo}</h3>
                 <p>{n.txt}</p>
-                <button className="noticia-link" onClick={() => navigate("/contato")}>Ler mais →</button>
+                <button className="noticia-link" onClick={() => navigate("/atendimento")}>Ler mais →</button>
               </div>
             </article>
           ))}

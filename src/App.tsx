@@ -3,10 +3,13 @@ import { BrowserRouter, Routes, Route, NavLink, useLocation, useNavigate } from 
 
 import Home from "./pages/Home";
 import Cursos from "./pages/Cursos";
+import Vestibular from "./pages/Vestibular";
 import Sobre from "./pages/Sobre";
-import Contato from "./pages/Contato";
+import Atendimento from "./pages/Atendimento";
 import CadastroAluno from "./pages/CadastroAluno";
 import CadastroProfessor from "./pages/CadastroProfessor";
+import Login from "./pages/Login";
+import { applyLang } from "./i18n";
 
 import "./App.css";
 
@@ -132,7 +135,7 @@ export function JsForm({ okTitle, okMsg, submitLabel, heading, children }: {
 /* ============================================================
    NAVBAR
    ============================================================ */
-function Navbar() {
+function Navbar({ lang, onToggleLang }: { lang: "pt" | "en"; onToggleLang: () => void }) {
   const [menu, setMenu] = useState(false);
   const [drop, setDrop] = useState(false);
   const dropRef = useRef<HTMLDivElement>(null);
@@ -156,8 +159,9 @@ function Navbar() {
         <nav className={`nav-links ${menu ? "open" : ""}`} aria-label="Navegação principal">
           <NavLink to="/" className={cls} onClick={close}>Home</NavLink>
           <NavLink to="/cursos" className={cls} onClick={close}>Cursos</NavLink>
+          <NavLink to="/vestibular" className={cls} onClick={close}>Vestibular</NavLink>
           <NavLink to="/sobre" className={cls} onClick={close}>Sobre</NavLink>
-          <NavLink to="/contato" className={cls} onClick={close}>Contato</NavLink>
+          <NavLink to="/atendimento" className={cls} onClick={close}>Atendimento</NavLink>
           <div className="dropdown" ref={dropRef}>
             <button className="btn-inscreva" aria-haspopup="true" aria-expanded={drop} onClick={() => setDrop((v) => !v)}>
               Inscreva-se <i className={`fa-solid fa-chevron-down chevron ${drop ? "open" : ""}`}></i>
@@ -169,6 +173,8 @@ function Navbar() {
               </div>
             )}
           </div>
+          <NavLink to="/login" className="nav-portal" onClick={close}><i className="fa-solid fa-circle-user"></i> Portal do Aluno</NavLink>
+          <button className="lang-toggle" aria-label="Switch language" onClick={onToggleLang}><i className="fa-solid fa-globe"></i> <span>{lang === "pt" ? "EN" : "PT"}</span></button>
         </nav>
       </div>
     </header>
@@ -196,7 +202,8 @@ function Footer() {
           <h4>Institucional</h4>
           <NavLink to="/sobre">Sobre a Universidade</NavLink>
           <NavLink to="/cursos">Cursos</NavLink>
-          <NavLink to="/contato">Contato</NavLink>
+          <NavLink to="/vestibular">Vestibular</NavLink>
+          <NavLink to="/atendimento">Atendimento</NavLink>
         </nav>
         <nav className="footer-col" aria-label="Inscrições">
           <h4>Inscreva-se</h4>
@@ -223,7 +230,7 @@ function Footer() {
 const CHAT_RESP: Record<string, { txt: string; acao?: { label: string; nav?: string; wpp?: boolean } }> = {
   cursos: { txt: "Temos 25+ cursos de graduação nas áreas de Tecnologia, Saúde, Negócios, Comunicação e mais. Quer dar uma olhada?", acao: { label: "Ver cursos", nav: "/cursos" } },
   inscrever: { txt: "Inscrever-se é rápido: escolha o curso e preencha o formulário online. Posso te levar até lá!", acao: { label: "Fazer inscrição", nav: "/cadastro-aluno" } },
-  bolsas: { txt: "Oferecemos bolsas próprias, ProUni e FIES, além de descontos especiais. Fale com nossa equipe na página de Contato.", acao: { label: "Ver Contato", nav: "/contato" } },
+  bolsas: { txt: "Oferecemos bolsas próprias, ProUni e FIES, além de descontos especiais. Fale com nossa equipe na página de Atendimento.", acao: { label: "Ver Atendimento", nav: "/atendimento" } },
   humano: { txt: "Claro! Você pode falar agora com nossa equipe pelo WhatsApp 👇", acao: { label: "Abrir WhatsApp", wpp: true } },
 };
 const CHAT_QUICK = [
@@ -255,7 +262,7 @@ function FloatingWidgets() {
     localStorage.setItem("ur-font", String(scale));
   }, [scale]);
   useEffect(() => { if (localStorage.getItem("ur-contrast") === "1") document.body.classList.add("alto-contraste"); }, []);
-  useEffect(() => { if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight; }, [msgs]);
+  useEffect(() => { if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight; if (localStorage.getItem("ur-lang") === "en") requestAnimationFrame(() => applyLang("en")); }, [msgs]);
 
   const openChat = () => {
     setChatOpen(true);
@@ -344,20 +351,34 @@ function ScrollTop() {
   return null;
 }
 
+function Translator({ lang }: { lang: "pt" | "en" }) {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const id = requestAnimationFrame(() => applyLang(lang));
+    return () => cancelAnimationFrame(id);
+  }, [lang, pathname]);
+  return null;
+}
+
 export default function App() {
+  const [lang, setLang] = useState<"pt" | "en">(() => ((localStorage.getItem("ur-lang") as "pt" | "en") || "pt"));
+  const onToggleLang = () => setLang((l) => { const n = l === "pt" ? "en" : "pt"; localStorage.setItem("ur-lang", n); return n; });
   return (
     <BrowserRouter>
       <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
-      <Navbar />
+      <Navbar lang={lang} onToggleLang={onToggleLang} />
       <ScrollTop />
-      <main id="conteudo">
+      <Translator lang={lang} />
+      <main id="conteudo" key={lang}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cursos" element={<Cursos />} />
+          <Route path="/vestibular" element={<Vestibular />} />
           <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contato" element={<Contato />} />
+          <Route path="/atendimento" element={<Atendimento />} />
           <Route path="/cadastro-aluno" element={<CadastroAluno />} />
           <Route path="/cadastro-professor" element={<CadastroProfessor />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <Footer />

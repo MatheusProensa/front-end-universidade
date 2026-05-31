@@ -78,7 +78,7 @@ export default function Cursos() {
               </div>
               <div className="modal-actions">
                 <button className="btn btn--primary" onClick={() => { setSel(null); navigate("/cadastro-aluno"); }}>Inscreva-se neste curso →</button>
-                <button className="btn btn--outline-dark" onClick={() => { setSel(null); navigate("/contato"); }}>Falar com consultor</button>
+                <button className="btn btn--outline-dark" onClick={() => { setSel(null); navigate("/atendimento"); }}>Falar com consultor</button>
               </div>
             </div>
           </div>

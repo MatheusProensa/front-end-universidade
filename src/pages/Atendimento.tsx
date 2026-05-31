@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { JsForm } from "../App";
-import "./contato.css";
+import "./atendimento.css";
 
 const SETORES = [
   { icon: "fa-file-signature", t: "Secretaria Acadêmica", p: "Matrículas, documentos, históricos e declarações.", h: "Seg a sex, 8h às 20h", tel: "(55) 3220-1200", mail: "secretaria@universidadereact.com" },
@@ -15,7 +15,7 @@ const FAQ = [
   { q: "Qual o horário de atendimento?", a: <p>Nosso atendimento funciona de <strong>segunda a sexta, das 8h às 18h</strong>, de forma presencial e online. Pelo WhatsApp você fala com a equipe a qualquer momento.</p> },
 ];
 
-export default function Contato() {
+export default function Atendimento() {
   const [faq, setFaq] = useState<number | null>(null);
   return (
     <section className="page active">
