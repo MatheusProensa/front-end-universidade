@@ -1,73 +1,120 @@
-# React + TypeScript + Vite
+# 🎓 Universidade React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Site institucional de uma universidade fictícia — moderno, responsivo, acessível e bilíngue. Projeto desenvolvido com **React + TypeScript + Vite**.
 
-Currently, two official plugins are available:
+<p align="center">
+  <img src="public/assets/logo-universidade.png" alt="Universidade React" height="70" />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<p align="center">
+  <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" />
+  <img alt="React Router" src="https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter&logoColor=white" />
+</p>
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📖 Sobre o projeto
 
-## Expanding the ESLint configuration
+O **Universidade React** é um site institucional completo, pensado para passar **credibilidade, organização e captação de alunos** — no padrão dos sites de universidades reais. Começou como um trabalho acadêmico de Aplicação Web e evoluiu para um projeto de portfólio, com identidade visual consistente, várias páginas e recursos profissionais.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🔗 **Repositório:** [github.com/MatheusProensa/front-end-universidade](https://github.com/MatheusProensa/front-end-universidade)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🖼️ Preview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+> 💡 Dica: tire prints das telas e coloque aqui (crie uma pasta `docs/` e referencie as imagens). Ex.:
+>
+> ```md
+> ![Home](docs/home.png)
+> ![Cursos](docs/cursos.png)
+> ```
+
+---
+
+## ✨ Funcionalidades
+
+- 🏠 **Home** com hero, estatísticas animadas (count-up), cursos em destaque, galeria do campus (com lightbox), modalidades, depoimentos, notícias e CTA
+- 🎓 **Cursos** com busca, filtros por área/modalidade e **modal de detalhes** (grade curricular + mercado de trabalho)
+- 📖 **Sobre** com diferenciais, missão/visão/valores, números animados e linha do tempo
+- ✉️ **Contato** com canais por setor, mapa, formulário (com validação) e FAQ
+- 📝 **Cadastro de Aluno e Professor** com formulários validados e estado de sucesso
+- 🤖 **Assistente virtual (chat)** com respostas guiadas e opção de atendimento humano
+- ♿ **Acessibilidade**: aumentar/diminuir fonte, alto contraste e integração com **VLibras**
+- 📱 **Totalmente responsivo** (desktop, tablet e mobile com menu hambúrguer)
+- 🎬 Animações suaves de scroll e hover
+
+---
+
+## 🛠️ Tecnologias
+
+- **React 19** + **TypeScript**
+- **Vite** (build e dev server)
+- **React Router DOM** (navegação entre páginas)
+- **Font Awesome** (ícones)
+- **VLibras** (acessibilidade em Libras)
+- CSS puro com **design tokens** (variáveis CSS) — sem framework
+
+---
+
+## 🚀 Como rodar o projeto
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/MatheusProensa/front-end-universidade.git
+cd front-end-universidade
+
+# 2. Instale as dependências
+npm install
+
+# 3. Rode em modo de desenvolvimento
+npm run dev
+
+# 4. (Opcional) Gere a build de produção
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+O projeto abre em `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Estrutura de pastas
+
 ```
+front-end-universidade/
+├─ public/
+│  └─ assets/            # imagens (logo, cursos, campus, notícias, depoimentos)
+├─ src/
+│  ├─ pages/             # páginas do site
+│  │  ├─ Home.tsx
+│  │  ├─ Cursos.tsx + cursos.css
+│  │  ├─ Sobre.tsx + sobre.css
+│  │  ├─ Contato.tsx + contato.css
+│  │  ├─ CadastroAluno.tsx + cadastroaluno.css
+│  │  └─ CadastroProfessor.tsx + cadastroprofessor.css
+│  ├─ App.tsx            # navbar, rodapé, chat, acessibilidade, rotas e dados
+│  ├─ App.css
+│  ├─ index.css          # estilos globais + design tokens
+│  └─ main.tsx
+└─ index.html
+```
+
+---
+
+## ♿ Acessibilidade
+
+O site segue boas práticas de acessibilidade: navegação por teclado com foco visível, textos alternativos, marco `<main>`, *skip link*, suporte a `prefers-reduced-motion`, ajuste de fonte, alto contraste e tradução em Libras via **VLibras**.
+
+---
+
+## 👤 Autor
+
+Desenvolvido por **Matheus Proensa**.
+
+---
+
+## 📄 Licença
+
+Projeto acadêmico de uso livre para fins de estudo e portfólio.
