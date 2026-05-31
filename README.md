@@ -27,9 +27,7 @@ O **Universidade React** é um site institucional completo, pensado para passar 
 
 
 ![Home](https://github.com/user-attachments/assets/baa847f0-8921-425c-8f4c-530362695e71)
-)
 ![Cursos](https://github.com/user-attachments/assets/721768e0-491a-4cbf-b3a4-2c4c7ec801b3)
-)
 ![Estrutura](https://github.com/user-attachments/assets/138bd222-c0ff-4a76-be54-3f43cf3d7a80)
 ![Estrutura Detalhes](https://github.com/user-attachments/assets/1dd50750-7fa5-4701-b159-3b113991c4f1)
 
