@@ -1,135 +1,30 @@
+import { JsForm } from "../App";
 import "./cadastroaluno.css";
-import bgAluno from "../assets/bg-aluno.png";
-
-import {
-  FaUserGraduate,
-  FaIdCard,
-  FaEnvelope,
-  FaBookOpen
-} from "react-icons/fa";
 
 export default function CadastroAluno() {
   return (
-    <div className="cadastro-page">
-
-      {/* HERO */}
-      <section
-        className="cadastro-hero"
-        style={{ backgroundImage: `url(${bgAluno})` }}
-      >
-        <div className="cadastro-hero-content">
-
-          <h1>Cadastro de Aluno</h1>
-
-          <div className="cadastro-hero-text">
-            <p>
-              Inicie sua jornada acadêmica e faça parte
-              de uma universidade conectada ao futuro.
-            </p>
+    <section className="page active">
+      <div className="page-banner" style={{ backgroundImage: "url('/assets/bg-aluno.png')" }}>
+        <div className="container"><h1>Cadastro de Aluno</h1><div className="banner-text"><p>Inicie sua jornada acadêmica e faça parte de uma universidade conectada ao futuro.</p></div></div>
+      </div>
+      <div className="section"><div className="split">
+        <div className="split-navy">
+          <span className="split-info-tag">INSCRIÇÃO ACADÊMICA</span>
+          <h2 style={{ marginTop: 8 }}>Seu futuro começa aqui</h2>
+          <p>Preencha seus dados para realizar seu cadastro e dar o primeiro passo para sua formação universitária.</p>
+          <div className="cad-beneficios">
+            <div><i className="fa-solid fa-book-open"></i><strong>25+ Cursos</strong><p>Graduação moderna e conectada ao mercado</p></div>
+            <div><i className="fa-solid fa-user-graduate"></i><strong>15 mil alunos</strong><p>Comunidade acadêmica em crescimento</p></div>
           </div>
-
         </div>
-      </section>
-
-      {/* CONTEÚDO */}
-      <section className="cadastro-container">
-
-        {/* ESQUERDA */}
-        <div className="cadastro-info">
-
-          <span>INSCRIÇÃO ACADÊMICA</span>
-
-          <h2>Seu futuro começa aqui</h2>
-
-          <p>
-            Preencha seus dados para realizar seu cadastro
-            e dar o primeiro passo para sua formação universitária.
-          </p>
-
-          <div className="cadastro-beneficios">
-
-            <div>
-              <FaBookOpen />
-              <strong>25+ Cursos</strong>
-              <p>Graduação moderna e conectada ao mercado</p>
-            </div>
-
-            <div>
-              <FaUserGraduate />
-              <strong>15 mil alunos</strong>
-              <p>Comunidade acadêmica em crescimento</p>
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* FORM */}
-        <form className="cadastro-form">
-
-          <h3>Preencha seus dados</h3>
-
-          <div className="form-group">
-            <label>Nome completo</label>
-
-            <div className="input-icon">
-              <FaUserGraduate />
-
-              <input
-                type="text"
-                placeholder="Digite seu nome"
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label>CPF</label>
-
-            <div className="input-icon">
-              <FaIdCard />
-
-              <input
-                type="text"
-                placeholder="Digite seu CPF"
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label>Email</label>
-
-            <div className="input-icon">
-              <FaEnvelope />
-
-              <input
-                type="email"
-                placeholder="Digite seu email"
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label>Curso desejado</label>
-
-            <select>
-              <option>Sistemas de Informação</option>
-              <option>Administração</option>
-              <option>Direito</option>
-              <option>Enfermagem</option>
-              <option>Design Gráfico</option>
-              <option>Educação Física</option>
-              <option>Biomedicina</option>
-              <option>Medicina Veterinária</option>
-            </select>
-          </div>
-
-          <button type="submit">
-            Realizar cadastro →
-          </button>
-
-        </form>
-
-      </section>
-    </div>
+        <JsForm okTitle="Cadastro realizado!" okMsg="Seja bem-vindo(a)! Em breve nossa equipe entrará em contato com os próximos passos da sua matrícula." submitLabel="Realizar cadastro →"
+          heading={<><h3>Preencha seus dados</h3><div className="line"></div></>}>
+          <div className="form-group"><label>Nome completo</label><input className="input" type="text" placeholder="Digite seu nome" /></div>
+          <div className="form-group"><label>CPF</label><input className="input" type="text" placeholder="Digite seu CPF" /></div>
+          <div className="form-group"><label>E-mail</label><input className="input" type="email" placeholder="Digite seu e-mail" /></div>
+          <div className="form-group"><label>Curso desejado</label><select className="input" defaultValue="Sistemas de Informação"><option>Sistemas de Informação</option><option>Administração</option><option>Direito</option><option>Enfermagem</option><option>Design Gráfico</option><option>Educação Física</option><option>Biomedicina</option><option>Medicina Veterinária</option></select></div>
+        </JsForm>
+      </div></div>
+    </section>
   );
 }

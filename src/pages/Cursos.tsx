@@ -1,328 +1,89 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CURSOS, AREAS, type Curso, CourseCard } from "../App";
 import "./cursos.css";
-import React, { useState } from "react";
-import bgCursos from "../assets/bg-cursos.png";
-
-import {
-  FaLaptopCode,
-  FaChartLine,
-  FaGavel,
-  FaHeartbeat,
-  FaClock,
-  FaGraduationCap,
-  FaSearch
-} from "react-icons/fa";
-
-import {
-  GraduationCap,
-  Building2,
-  Users,
-  FileText
-} from "lucide-react";
 
 export default function Cursos() {
-  const cursos = [
-  {
-    nome: "Sistemas de Informação",
-    area: "Tecnologia",
-    descricao:
-      "Forme-se para desenvolver soluções tecnológicas e inovadoras para os desafios do mundo digital.",
-    duracao: "8 semestres",
-    modalidade: "Presencial",
-    img: "/si.png",
-    icone: <FaLaptopCode />,
-  },
-
-  {
-    nome: "Administração",
-    area: "Negócios",
-    descricao:
-      "Desenvolva habilidades de gestão e liderança para atuar estrategicamente nas organizações.",
-    duracao: "8 semestres",
-    modalidade: "Presencial",
-    img: "/admin.png",
-    icone: <FaChartLine />,
-  },
-
-  {
-    nome: "Direito",
-    area: "Ciências Sociais",
-    descricao:
-      "Formação sólida para compreender e transformar a sociedade com ética, justiça e cidadania.",
-    duracao: "10 semestres",
-    modalidade: "Presencial",
-    img: "/direito.png",
-    icone: <FaGavel />,
-  },
-
-  {
-    nome: "Enfermagem",
-    area: "Saúde",
-    descricao:
-      "Prepare-se para cuidar, acolher e promover a saúde e o bem-estar das pessoas em todas as fases da vida.",
-    duracao: "8 semestres",
-    modalidade: "Presencial",
-    img: "/enfermagem.png",
-    icone: <FaHeartbeat />,
-  },
-  {
-  nome: "Design Gráfico",
-  area: "Comunicação",
-  descricao:
-    "Criação visual, branding, interfaces digitais e projetos criativos para o mercado moderno.",
-  duracao: "8 semestres",
-  modalidade: "Presencial",
-  img: "/design.png",
-  icone: <FaLaptopCode />,
-},
-
-{
-  nome: "Educação Física",
-  area: "Saúde",
-  descricao:
-    "Formação voltada para treinamento esportivo, saúde, performance e qualidade de vida.",
-  duracao: "8 semestres",
-  modalidade: "Presencial",
-  img: "/educacaofisica.png",
-  icone: <FaHeartbeat />,
-},
-
-{
-  nome: "Medicina Veterinária",
-  area: "Saúde",
-  descricao:
-    "Aprenda sobre cuidado animal, diagnóstico clínico e atuação em diversas áreas veterinárias.",
-  duracao: "10 semestres",
-  modalidade: "Presencial",
-  img: "/veterinaria.png",
-  icone: <FaHeartbeat />,
-},
-
-{
-  nome: "Biomedicina",
-  area: "Biológicas",
-  descricao:
-    "Atuação em análises clínicas, laboratórios, pesquisa científica e inovação na saúde.",
-  duracao: "8 semestres",
-  modalidade: "Presencial",
-  img: "/biomedicina.png",
-  icone: <FaHeartbeat />,
-},
-
-  
-];
-
+  const navigate = useNavigate();
   const [busca, setBusca] = useState("");
-  const [areaSelecionada, setAreaSelecionada] = useState("Todas");
-  const [modalidadeSelecionada, setModalidadeSelecionada] = useState("Todas");
+  const [area, setArea] = useState("Todas");
+  const [mod, setMod] = useState("Todas");
+  const [sel, setSel] = useState<Curso | null>(null);
 
-  const cursosFiltrados = cursos.filter((curso) => {
-    const nomeCombina = curso.nome.toLowerCase().includes(busca.toLowerCase());
-
-    const areaCombina =
-      areaSelecionada === "Todas" || curso.area === areaSelecionada;
-
-    const modalidadeCombina =
-      modalidadeSelecionada === "Todas" ||
-      curso.modalidade === modalidadeSelecionada;
-
-    return nomeCombina && areaCombina && modalidadeCombina;
-  });
-
-  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
-
-  const openLightbox = (img: string) => setLightboxImg(img);
-
-  const closeLightbox = (e: React.MouseEvent<HTMLDivElement | HTMLSpanElement>) => {
-    e.stopPropagation();
-    setLightboxImg(null);
-  };
+  const lista = CURSOS.filter(
+    (c) =>
+      c.nome.toLowerCase().includes(busca.toLowerCase()) &&
+      (area === "Todas" || c.area === area) &&
+      (mod === "Todas" || c.mod === mod)
+  );
 
   return (
-    <div className="page">
-      <section
-        className="cursos-hero"
-        style={{ backgroundImage: `url(${bgCursos})` }}
-      >
-        <div className="cursos-hero-content">
-          <h1>Nossos Cursos</h1>
+    <section className="page active">
+      <div className="page-banner" style={{ backgroundImage: "url('/assets/bg-cursos.png')" }}>
+        <div className="container"><h1>Nossos Cursos</h1><div className="banner-text"><p>Conheça nossos cursos de graduação e encontre o caminho ideal para o seu futuro profissional.</p></div></div>
+      </div>
 
-          <div className="cursos-hero-text">
-            <p>
-              Conheça nossos cursos de graduação e encontre<br />
-              o caminho ideal para o seu futuro profissional.
-            </p>
-          </div>
+      <div className="section">
+        <div className="filters">
+          <div className="field"><i className="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Buscar curso..." aria-label="Buscar curso" value={busca} onChange={(e) => setBusca(e.target.value)} /></div>
+          <div className="field"><select aria-label="Filtrar por área" value={area} onChange={(e) => setArea(e.target.value)}><option value="Todas">Todas as áreas</option>{AREAS.map((a) => <option key={a} value={a}>{a}</option>)}</select></div>
+          <div className="field"><select aria-label="Filtrar por modalidade" value={mod} onChange={(e) => setMod(e.target.value)}><option value="Todas">Todas as modalidades</option><option value="Presencial">Presencial</option></select></div>
+          <button className="clear-filters" onClick={() => { setBusca(""); setArea("Todas"); setMod("Todas"); }}><i className="fa-solid fa-rotate-right"></i> Limpar filtros</button>
         </div>
-      </section>
+        <div className="course-grid">
+          {lista.length ? lista.map((c) => <CourseCard key={c.nome} c={c} onDetails={setSel} />) : (
+            <p style={{ gridColumn: "1/-1", color: "var(--t-muted)", padding: "24px 0" }}>Nenhum curso encontrado para os filtros selecionados.</p>
+          )}
+        </div>
+      </div>
 
-      <section className="cursos-section">
-        <div className="filtros-cursos">
-  <div className="campo-busca">
-    <FaSearch />
+      <div className="section" style={{ paddingTop: 0 }}>
+        <div className="benefits">
+          <div className="benefit"><div className="benefit-icon"><i className="fa-solid fa-graduation-cap"></i></div><div><h4>Ensino de Qualidade</h4><p>Professores experientes e metodologias inovadoras para a sua formação.</p></div></div>
+          <div className="benefit"><div className="benefit-icon"><i className="fa-solid fa-building"></i></div><div><h4>Infraestrutura Completa</h4><p>Laboratórios modernos, bibliotecas e espaços de aprendizagem.</p></div></div>
+          <div className="benefit"><div className="benefit-icon"><i className="fa-solid fa-users"></i></div><div><h4>Conexão com o Mercado</h4><p>Parcerias com empresas e oportunidades de estágio e emprego.</p></div></div>
+          <div className="benefit"><div className="benefit-icon"><i className="fa-solid fa-file-lines"></i></div><div><h4>Formação Completa</h4><p>Desenvolvimento técnico, humano e profissional para o seu futuro.</p></div></div>
+        </div>
+        <div className="consultor">
+          <div className="consultor-l"><div className="consultor-icon"><i className="fa-solid fa-graduation-cap"></i></div><div><h3>Não encontrou o curso que procura?</h3><p>Fale com a nossa equipe e descubra outras opções de graduação.</p></div></div>
+          <button className="btn btn--yellow" onClick={() => navigate("/atendimento")}>Falar com um consultor →</button>
+        </div>
+      </div>
 
-    <input
-      type="text"
-      placeholder="Buscar curso..."
-      value={busca}
-      onChange={(e) => setBusca(e.target.value)}
-    />
-  </div>
-
-  <select
-    className="campo-select"
-    value={areaSelecionada}
-    onChange={(e) => setAreaSelecionada(e.target.value)}
-  >
-    <option value="Todas">Todas as áreas</option>
-    <option value="Tecnologia">Tecnologia</option>
-    <option value="Negócios">Negócios</option>
-    <option value="Ciências Sociais">Ciências Sociais</option>
-    <option value="Saúde">Saúde</option>
-  </select>
-
-  <select
-    className="campo-select"
-    value={modalidadeSelecionada}
-    onChange={(e) => setModalidadeSelecionada(e.target.value)}
-  >
-    <option value="Todas">Todas as modalidades</option>
-    <option value="Presencial">Presencial</option>
-  </select>
-
-  <button
-    className="limpar-filtros"
-    onClick={() => {
-      setBusca("");
-      setAreaSelecionada("Todas");
-      setModalidadeSelecionada("Todas");
-    }}
-  >
-    ↻ Limpar filtros
-  </button>
-</div>
-
-        <div className="card-container">
-          {cursosFiltrados.map((c, i) => (
-            <div className="curso-card" key={i}>
-              <div className="curso-img-box" onClick={() => openLightbox(c.img)}>
-                <img src={c.img} alt={c.nome} />
+      {sel && (
+        <div className="modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) setSel(null); }}>
+          <div className="modal-card" role="dialog" aria-modal="true">
+            <button className="modal-close" aria-label="Fechar" onClick={() => setSel(null)}><i className="fa-solid fa-xmark"></i></button>
+            <div className="modal-hero">
+              <img src={sel.img} alt={sel.nome} /><div className="modal-hero-grad"></div>
+              <div className="modal-hero-text"><span className="modal-chip"><i className={`fa-solid ${sel.icon}`}></i></span><h2>{sel.nome}</h2><span className="modal-area">{sel.area}</span></div>
+            </div>
+            <div className="modal-body">
+              <p className="modal-desc">{sel.desc}</p>
+              <div className="modal-meta">
+                <div><i className="fa-solid fa-clock"></i><div><strong>Duração</strong><span>{sel.dur}</span></div></div>
+                <div><i className="fa-solid fa-graduation-cap"></i><div><strong>Modalidade</strong><span>{sel.mod}</span></div></div>
+                <div><i className="fa-solid fa-sun"></i><div><strong>Turno</strong><span>{sel.turno}</span></div></div>
+                <div><i className="fa-solid fa-layer-group"></i><div><strong>Área</strong><span>{sel.area}</span></div></div>
               </div>
-
-              <div className="curso-icon">{c.icone}</div>
-
-              <div className="curso-content">
-                <h3>{c.nome}</h3>
-                <span className="curso-area">{c.area}</span>
-
-                <p>{c.descricao}</p>
-
-                <div className="curso-info">
-
-  <div className="info-item">
-    <FaClock />
-
-    <div>
-      <strong>Duração</strong>
-      <span>{c.duracao}</span>
-    </div>
-  </div>
-
-  <div className="info-item">
-    <FaGraduationCap />
-
-    <div>
-      <strong>Modalidade</strong>
-      <span>{c.modalidade}</span>
-    </div>
-  </div>
-
-</div>
-
-<button className="btn-detalhes">
-  Ver detalhes <span>›</span>
-</button>
+              <div className="modal-cols">
+                <div>
+                  <h4><i className="fa-solid fa-list-check"></i> O que você vai aprender</h4>
+                  <ul className="modal-grade">{sel.grade.map((g) => <li key={g}><i className="fa-solid fa-check"></i>{g}</li>)}</ul>
+                </div>
+                <div>
+                  <h4><i className="fa-solid fa-briefcase"></i> Mercado de trabalho</h4>
+                  <p className="modal-mercado">{sel.mercado}</p>
+                </div>
+              </div>
+              <div className="modal-actions">
+                <button className="btn btn--primary" onClick={() => { setSel(null); navigate("/cadastro-aluno"); }}>Inscreva-se neste curso →</button>
+                <button className="btn btn--outline-dark" onClick={() => { setSel(null); navigate("/contato"); }}>Falar com consultor</button>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-<section className="beneficios-section">
-
-  <div className="beneficio-card">
-    <div className="beneficio-icon"><GraduationCap /></div>
-
-    <div>
-      <h4>Ensino de Qualidade</h4>
-      <p>
-        Professores experientes e metodologias inovadoras para a sua formação.
-      </p>
-    </div>
-  </div>
-
-  <div className="beneficio-card">
-    <div className="beneficio-icon"><Building2 /></div>
-
-    <div>
-      <h4>Infraestrutura Completa</h4>
-      <p>
-        Laboratórios modernos, bibliotecas e espaços de aprendizagem.
-      </p>
-    </div>
-  </div>
-
-  <div className="beneficio-card">
-    <div className="beneficio-icon"><Users /></div>
-
-    <div>
-      <h4>Conexão com o Mercado</h4>
-      <p>
-        Parcerias com empresas e oportunidades de estágio e emprego.
-      </p>
-    </div>
-  </div>
-
-  <div className="beneficio-card">
-    <div className="beneficio-icon"><FileText /></div>
-
-    <div>
-      <h4>Formação Completa</h4>
-      <p>
-        Desenvolvimento técnico, humano e profissional para o seu futuro.
-      </p>
-    </div>
-  </div>
-
-</section>
-
-<section className="consultor-section">
-
-  <div className="consultor-texto">
-    <div className="consultor-icon"><GraduationCap /></div>
-
-    <div>
-      <h3>Não encontrou o curso que procura?</h3>
-
-      <p>
-        Fale com a nossa equipe e descubra outras opções de graduação.
-      </p>
-    </div>
-  </div>
-
-  <button className="consultor-btn">
-    FALAR COM UM CONSULTOR →
-  </button>
-
-</section>
-
-      {lightboxImg && (
-        <div className="lightbox-overlay" onClick={closeLightbox}>
-          <span className="lightbox-close" onClick={closeLightbox}>
-            &times;
-          </span>
-          <img src={lightboxImg} alt="Curso" />
+          </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }
