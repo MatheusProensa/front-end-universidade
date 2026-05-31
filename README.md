@@ -3,8 +3,7 @@
 > Site institucional de uma universidade fictícia — moderno, responsivo, acessível e bilíngue. Projeto desenvolvido com **React + TypeScript + Vite**.
 
 <p align="center">
-  <img src="public/assets/logo-universidade.png" alt="Universidade React" height="70" />
-</p>
+  </p>
 
 <p align="center">
   <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" />
